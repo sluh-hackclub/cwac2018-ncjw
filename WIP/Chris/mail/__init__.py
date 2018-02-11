@@ -16,7 +16,7 @@ import time
 
 # DYNAMIC SECTION
 first_name = "JOHN"
-last_name = "SHIT"
+last_name = "JOHNSON"
 address_1 = "2 Shiter St."
 address_2 = "Saint Louis, MO 63110"
 DATES=["1/2/14","1/4/15","4/11/16","5/7/20","5/3/4"]
