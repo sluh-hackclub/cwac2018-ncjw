@@ -38,25 +38,29 @@
   </head>
   <body>
     <div id="screenZero">
-        <button type="button" class="willybig1 btn btn-primary btn-lg">Women's Clothes</button>
-        <button type="button" class="willybig2 btn btn-primary btn-lg">Men's Clothes</button>
-        <button type="button" class="willybig3 btn btn-primary btn-lg">Children's Clothes</button><br>
-        <button type="button" class="willybig4 btn btn-primary btn-lg">Jewelry</button>
-        <button type="button" class="willybig5 btn btn-primary btn-lg" onclick="$('#screenZero').hide();$('#screenFursOne').show();">Furs</button>
-        <button type="button" class="willybig6 btn btn-primary btn-lg">Home Decor</button>
+      <button type="button" class="willybig1 btn btn-primary btn-lg">Women's Clothes</button>
+      <button type="button" class="willybig2 btn btn-primary btn-lg">Men's Clothes</button>
+      <button type="button" class="willybig3 btn btn-primary btn-lg">Children's Clothes</button><br>
+      <button type="button" class="willybig4 btn btn-primary btn-lg">Jewelry</button>
+      <button type="button" class="willybig5 btn btn-primary btn-lg" onclick="$('#screenZero').hide();$('#screenFurs').show();">Furs</button>
+      <button type="button" class="willybig6 btn btn-primary btn-lg">Home Decor</button>
+    </div>
+    <div id="screenFurs">
+      <button type="button" class="willybig2 btn btn-primary btn-lg" onclick="$('#screenFurs').hide();$('#screenFursOne').show();">Outwear</button>
+      <button type="button" class="willybig4 btn btn-primary btn-lg">Accessories</button>
     </div>
     <div id="screenFursOne">
-        <button type="button" class="willybig2 btn btn-primary btn-lg">Outwear</button>
-        <button type="button" class="willybig4 btn btn-primary btn-lg">Accessories</button>
+      <button type="button" class="willybig2 btn btn-primary btn-lg">Full Length</button>
+      <button type="button" class="willybig2 btn btn-primary btn-lg">Mid Length</button>
+      <button type="button" class="willybig2 btn btn-primary btn-lg">Short Length</button>
     </div>
-    <div id="screenFursTwoOut" style="visibility:hidden;">
-
-    </div>
-    <div id="screenFursTwoAcc" style="visibility:hidden;">
-
+    <div id="screenFursTwo">
+      <button type="button" class="willybig2 btn btn-primary btn-lg">Outwear</button>
     </div>
     <script>
+      $('#screenFurs').hide();
       $('#screenFursOne').hide();
+      $('#screenFursTwo').hide();
     </script>
     <!-- Begin javascript sources -->
     <!-- Keep at bottom -->
