@@ -15,14 +15,14 @@ import datetime
 import time
 
 # DYNAMIC SECTION
-first_name = "JOHN"
-last_name = "Hilker"
+first_name = "John"
+last_name = "Johnson"
 address_1 = "2 Market St."
 address_2 = "Saint Louis, MO 63110"
 DATES=["1/2/14","1/4/15","4/11/16","5/7/20","5/3/4"]
-ITEMS=["Sweater","Boots","Shirts","Jacket","ITEM"]
-PRICES=[6000,300,301400,4503,2345]
-email_address ="iamacookiedude@gmail.com"
+ITEMS=["Sweater","Boots","Shirts","Jacket","Backpacks"]
+PRICES=[60,30,30,45,34]
+email_address ="test@test.com"
 
 # END OF DYNAMIC SECTION
 S = '<html><head><style>* {font-family: helvetica;}table {border-collapse: collapse;width: 100%;}td, th {border: 1px solid #dddddd;text-align: left;padding: 1px;}tr:nth-child(even) {background-color: #dddddd;}</style></head><body><h1>Tax Return</h1><p>'
