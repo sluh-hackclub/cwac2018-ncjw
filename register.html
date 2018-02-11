@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./register.css">
+    <style>
+    </style>
+    <title>Register</title>
+  </head>
+  <body>
+<!--
+    you can substitue the span of reauth email for a input with the email and
+    include the remember me checkbox
+    -->
+    <div class="container">
+        <div class="card card-container">
+            <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+            <img id="profile-img" class="profile-img-card" src="./ResaleShop.png" />
+            <p id="profile-name" class="profile-name-card"></p>
+            <form class="form-signin">
+                <span id="reauth-email" class="reauth-email"></span>
+                <input type="text" id="inputFirstName" class="form-control" placeholder="Enter your First Name" name="firstNameInput" required autofocus>
+                <input type="text" id="inputLastName" class="form-control" placeholder="Enter your Last Name" name="lastNameInput" required>
+                <input type="text" id="inputUserID" class="form-control" placeholder="Create a Username" name="userIdInput" required>
+                <input type="text" id="phoneNumber" class="form-control" placeholder="Enter Phone Number" name="phoneInput" required>
+                <input type="text" id="city" class="form-control" placeholder="Enter City"name ="cityInput" required>
+                <input type="text" id=""
+                <input type="text" id="Address" class="form-control" placeholder="Enter Address" name="addressInput" required>
+                <input type="text" id="inputEmail" class="form-control" placeholder="Enter your Email Address" name="emailInput" required>
+                <button class="btn btn-lg btn-primary btn-block btn-signin" onclick="myFunction()">Register</button>
+            </form><!-- /form --><!--
+            <a href="#" class="forgot-password">
+                Forgot the password?
+            </a>-->
+        </div><!-- /card-container -->
+    </div><!-- /container -->
+    <script>
+      function myFunction() {
+      //    document.getElementById("myText").innerHTML = myText;
+          if (document.getElementsByName("userIdInput")[0].value == "Carter") {
+//            var myText = ["January","Febuary", "March", "April"];
+//            document.getElementById("myText").innerHTML = myText;
+            if (document.getElementsByName("passwordInput")[0].value == "140234") {
+              alert("You're In!");
+            } else {
+              alert("PIN incorrect");
+            }
+          } else {
+            alert("User ID Not Recognized");
+          }
+        }
+    </script>
+  </body>
+</html>
