@@ -7,10 +7,11 @@
     <style>
     </style>
     <title>Register</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   </head>
   <body>
 <!--
-    you can substitue the span of reauth email for a input with the email and
+    you can substitute the span of reauth email for a input with the email and
     include the remember me checkbox
     -->
     <div class="container">
@@ -22,14 +23,13 @@
                 <span id="reauth-email" class="reauth-email"></span>
                 <input type="text" id="inputFirstName" class="form-control" placeholder="Enter your First Name" name="firstNameInput" required autofocus>
                 <input type="text" id="inputLastName" class="form-control" placeholder="Enter your Last Name" name="lastNameInput" required>
-                <input type="text" id="inputUserID" class="form-control" placeholder="Create a Username" name="userIdInput" required>
                 <input type="text" id="phoneNumber" class="form-control" placeholder="Enter Phone Number" name="phoneInput" required>
                 <input type="text" id="city" class="form-control" placeholder="Enter City" name ="cityInput" required>
                 <input type="text" id="state" class="form-control" placeholder="Enter State" name="stateInput" required>
                 <input type="text" id="zipCode" class="form-control" placeholder="Enter Zipcode" name="zipInput" required>
                 <input type="text" id="address" class="form-control" placeholder="Enter Address" name="addressInput" required>
                 <input type="text" id="inputEmail" class="form-control" placeholder="Enter your Email Address" name="emailInput" required>
-                <button class="btn btn-lg btn-primary btn-block btn-signin" onclick="myFunction()">Register</button>
+                <div class="btn btn-lg btn-primary btn-block btn-signin" onclick="myFunction();return false">Register</div>
             </form><!-- /form --><!--
             <a href="#" class="forgot-password">
                 Forgot the password?
@@ -51,15 +51,25 @@
             alert("User ID Not Recognized");
           }
         }*/
-        {
+      {
           var firstNameInput = document.getElementsByName("firstNameInput")[0].value;
           var lastNameInput = document.getElementsByName("lastNameInput")[0].value;
-          var userIdInput = document.getElementsByName("userIdInput")[0].value;
-          var phoneNumberInput = document.getElementsByName("phoneNumber")[0].value;
-          var cityInput = document.getElementsByName("city")[0].value;
-          var stateInput = document.getElementsByName("state")[0].value;
-          var zipCodeInput = document.getElementsByName("userIdInput")[0].value;
-        }
+          var phoneNumberInput = document.getElementsByName("phoneInput")[0].value;
+          var cityInput = document.getElementsByName("cityInput")[0].value;
+          var stateInput = document.getElementsByName("stateInput")[0].value;
+          var zipCodeInput = document.getElementsByName("zipInput")[0].value;
+console.log("foobar");
+
+var donorInfo = {"firstname":firstNameInput, "lastname":lastNameInput,
+"phonenumber":phoneNumberInput, "city":cityInput, "state":stateInput, "zip":zipCodeInput};
+
+  console.log(donorInfo);
+    };
+$.post(
+  "/api/v1/registerdonor", donorInfo, function(data){
+      console.log(data);
+  }
+)
     </script>
   </body>
 </html>
