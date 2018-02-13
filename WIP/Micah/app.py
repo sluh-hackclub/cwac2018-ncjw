@@ -52,10 +52,11 @@ def authenticate():
 
 
 @app.route('/api/v1/taxletter/<dp_id>/<year>')
-@protected
+# @protected
 def taxletter(dp_id, year):
     tax_letter_url = wasabi_base_url + '/' + dp_id + '/' + year + '/' + 'taxletter.pdf'
-    user_name = db.users.find_one({'dp_id': dp_id})['name']
+    # user_name = db.users.find_one({'dp_id': dp_id})['name']
+    user_name = 'Micah'
     tax_letter_data = {'url':tax_letter_url, 'name':user_name, 'year':year}
     return jsonify(tax_letter_data)
     #query object storage using id and year
@@ -65,7 +66,7 @@ def taxletter(dp_id, year):
 @protected
 def create_item_api():
     new_item_data = request.get_json()
-    db.items.insert({key:new_item_data[key] for key in new_item_data})
+    db.items.insert(new_item_data)
     return redirect(url_for('index'))
 
 @app.route('/api/v1/itemize/<click_id>')
@@ -88,7 +89,8 @@ def find_user(user_name):
 @app.route('/api/v1/registerdonor', methods=['GET', 'POST'])
 def register_donor_api():
     data = request.get_json()
-    redirect(url_for('select_receipt'), pn=data['phone_number'])
+    db.users.insert(data)
+    return url_for('select_receipt', pn=data['phone_number'])
     #will have receipt options
 
 @app.route('/api/v1/verifydonor', methods=['GET', 'POST'])
@@ -97,11 +99,11 @@ def verify_donor_api():
     redirect(url_for('select_receipt'), pn=data['phone_number'])
 ################################################################################
 
-@app.route('/createitem/<dp_id')
+@app.route('/createitem')
 @protected
-def create_item(dp_id):
-    return render_template('createitem.html')
-    #javascript will get dp_id from the url
+def create_item():
+    return render_template('progression.html')
+    #javascript will get dp_id from the url add dp_id to url
     #page with user and buttons to add items
     #code to add new item
 
@@ -110,13 +112,13 @@ def login():
     return render_template('login.html')
 
 @app.route('/viewtaxletters')
-# @protected
+@protected
 def view_tax_letter():
-    return render_template('viewtaxletters.html')
+    return render_template('viewtaxletter.html')
 
 @app.route('/registerdonor')
 def register_donor():
-    return render_template('registerdonor.html')
+    return render_template('register.html')
     #auto add user to dp to get dp_id
 
 @app.route('/verifydonor')
@@ -128,10 +130,14 @@ def select_receipt():
     phone_number = request.args.get('pn')
     receipt_status = request.form['receipt_status']
     if db.users.find({'phone_number':phone_number})['receipt'] == 1:
-        redirect(url_for('verify_donor'))
+        return redirect(url_for('verify_donor'))
     else:
         db.users.update({'phone_number':phone_number}, {'receipt_status':receipt_status})
-        redirect(url_for('verify_donor'))
+        return redirect(url_for('verify_donor'))
+
+@app.route('/receipt')
+def receipt():
+    return render_template('receipt.html')
 
 @app.route('/')
 @protected
@@ -147,4 +153,4 @@ def logout():
         return redirect(url_for('login'))
 
 if __name__ == "__main__":
-    app.run(port=443, ssl_context=context)
+    app.run(port=443, ssl_context=context, host='0.0.0.0')

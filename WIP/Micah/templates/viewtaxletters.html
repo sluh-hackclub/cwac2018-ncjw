@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <style>
+  body {
+    height: 1000px;
+    background: #ffffff;
+    color: white;
+    text-align: center;
+    }
+  .buttondata {
+    height : 50px;
+    width : 200px;
+    font-size : 25px;
+  }
+  </style>
+</head>
+<body class="container-fluid bg-1 text-center">
+
+
+<div>
+    <input type="text" class="valueInputData" name="dp_id" placeholder="Donor ID">
+    <input type="text" placeholder="Year (ex. 2018)" name="year" />
+    <button onclick="submit()">Search</button>
+</div>
+
+<script>
+function submit() {
+  var year = $("input[name='year']").val();
+  var dp_id = $("input[name='dp_id']").val();
+  $.ajax({
+    type: "GET",
+    url: "/api/v1/taxletter/" + dp_id + '/' + year,
+    success: function(data) {
+      alert(data)
+    },
+    dataType: "json"
+  });
+}
+</script>
+
+
+</body>
