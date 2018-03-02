@@ -3,9 +3,9 @@ import pdfkit
 import datetime
 import time
 # DYNAMIC SECTION
-first_name = "JOHN"
-last_name = "SHIT"
-address_1 = "2 Shiter St."
+first_name = "John"
+last_name = "Johnson"
+address_1 = "2 Market St."
 address_2 = "Saint Louis, MO 63110"
 DATES=["1/2/14","1/4/15","4/11/16","5/7/20","5/3/4"]
 ITEMS=["Sweater","Boots","Shirts","Jacket","ITEM"]
