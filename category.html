@@ -1,0 +1,28 @@
+<head>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.css" rel="stylesheet" />
+  <base href="/"  />
+  <style>
+  .selector {
+    min-width: 200px;
+    min-height: 200px;
+    background-color: #3498db;
+    padding: 20px;
+    margin: 5px;
+  }
+
+  .flexbox-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  </style>
+</head>
+<body>
+  <div class="flexbox-container">
+    <div class="selector" ng-repeat="category in categories" ng-click="categoryClick(category.id)">
+      {{category.category}}
+    </div>
+  </div>
+</body>

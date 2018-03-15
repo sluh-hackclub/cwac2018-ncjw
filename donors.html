@@ -1,0 +1,64 @@
+<head>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.css" rel="stylesheet" />
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+  <link href='css/donors.css' rel="stylesheet" />
+  <base href="/" />
+  <style>
+    .modal {
+      z-index: 10;
+      position: absolute;
+      top: 50px;
+      display: none;
+    }
+
+    .modal-content {
+      box-shadow: 0 0 10px #999;
+    }
+
+    body {
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" style="border-radius: 0">Donor Name</span>
+      </div>
+      <input type="text" class="form-control" ng-model="donorName" ng-change="donorSearch()" style="border-radius: 0">
+    </div>
+    <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card" ng-repeat="donor in donors" ng-click="donorClick(donor.id)">
+              <div class="card-body">
+                {{donor.name}}
+                <br />
+                <small><i class="fa fa-home"></i> {{donor.address}}</small>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+  <div class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Options</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="close()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Would you like to create a new item for this donor or view their tax letter?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" ng-click="taxletter()">View Tax Letter</button>
+        <button type="button" class="btn btn-primary" ng-click="createitem()">Create Item</button>
+      </div>
+    </div>
+  </div>
+  </div>
+
+</body>
