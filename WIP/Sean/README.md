@@ -1,3 +1,0 @@
-# Sean's Work
-
-(nothing)
