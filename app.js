@@ -2,7 +2,7 @@ var itemUrl = '/update_items'
 var donorUrl = 'http://127.0.0.1:5000/get_donors/'
 var categoryUrl = 'http://127.0.0.1:5000/get_categories/'
 var taxLetterUrl = 'http://127.0.0.1:5000/get_tax_letter_url/'
-var app = angular.module('createItem', ['ngRoute', 'treeControl']);
+var app = angular.module('createItem', ['ngRoute']);
 
 app.config(function($routeProvider, $locationProvider) {
   $routeProvider
@@ -18,10 +18,10 @@ app.config(function($routeProvider, $locationProvider) {
       templateUrl: 'partials/price.html',
       controller: 'mainController'
     })
-    .when('/manage', {
-      templateUrl: 'partials/manage.html',
-      controller: 'managementController'
-    })
+    // .when('/manage', {
+    //   templateUrl: 'partials/manage.html',
+    //   controller: 'managementController'
+    // })
     .otherwise({redirectTo: '/'});
     $locationProvider.html5Mode(true);
 });
@@ -95,10 +95,3 @@ app.controller('categoryController', function($scope, loadCategories, $location,
     })
   }
 });
-
-app.controller('managementController', function($scope) {
-  $scope.treeData = [{'name':'Shirts', 'children': [{'name': 'Mens'},{'name': 'Childrens'},{'name': 'Womens'}]},{'name':'Hats'},{'name':'Jackets'},{'name':'Pants'},{'name':'Shoes'}];
-  $scope.nodeClick = function(e) {
-    alert(e.clientX)
-  };
-})
