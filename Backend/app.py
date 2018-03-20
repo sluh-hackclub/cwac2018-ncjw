@@ -3,7 +3,7 @@ import boto3
 
 app = Flask(__name__)
 
-s3 = boto3.client('s3', aws_access_key_id='AKIAIUJZXGCACX2DDAMQ', aws_secret_access_key='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')
+s3 = boto3.client('s3', aws_access_key_id='', aws_secret_access_key='')
 
 donor_list = [
                 {'name':'Micah', 'id':'1234', 'address':'1545 Legacy Circle'},
