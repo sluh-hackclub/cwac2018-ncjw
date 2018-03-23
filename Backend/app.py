@@ -14,6 +14,7 @@ donor_list = [
                 {'name':'Tyrell Williams', 'id':'1234', 'address':'1545 Legacy Circle'},
                 {'name':'Lynda Smith', 'id':'1234', 'address':'1545 Legacy Circle'},
                 {'name':'John Adams', 'id':'1234', 'address':'1545 Legacy Circle'},
+                {'name':'John Shit', 'id':'6969', 'address':'420 Weed Drive'},
             ]
 # donors = sorted(donors_unorderd, key=lambda x: x['name'])
 category_list = [
